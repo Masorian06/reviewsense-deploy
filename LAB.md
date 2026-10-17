@@ -760,13 +760,16 @@ gh pr create --fill
 
 ```
 baseline origin/main (min gain 0.002, max recall drop 0.01)
-f1_macro 0.9299 -> 0.8811 (-0.0488)
-recall_negative 0.8522 -> 0.7091 (drop +0.1431)
-GATE FAILED: gain -0.0488 < 0.002
+f1_macro 0.9298 -> 0.8814 (-0.0484)
+recall_negative 0.8520 -> 0.7097 (drop +0.1423)
+GATE FAILED: gain -0.0484 < 0.002
 Error: Process completed with exit code 1.
 ```
 
-On the pull request page the `train` check has a red X and the merge button is disabled:
+The baseline is now the trigram model, because `main` moved: the gate always measures against
+the champion's current record (0.9298 is the value your laptop committed in PR 1; the runner
+may print 0.8811 or 0.8814 for the new model). On the pull request page the `train` check has
+a red X and the merge button is disabled:
 "Required statuses must pass before merging". Nothing reached the registry. Leave this
 pull request open; it is part of what you hand in. Case problem 3, answered: a model
 reaches the registry only with a passing gate, and the next step adds a named approver.
